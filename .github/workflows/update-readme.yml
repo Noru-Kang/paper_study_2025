@@ -1,0 +1,146 @@
+name: Update README (Auto Table)
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  # 필요하면 일정 실행도 가능 (매일 09:00 KST)
+  # schedule:
+  #   - cron: "0 0 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  update-readme:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # git log, blame 등에 필요
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run updater
+        env:
+          REPO_URL: ${{ github.server_url }}/${{ github.repository }}
+        run: |
+          python - <<'PY'
+import os, re, subprocess, pathlib, html
+from datetime import datetime, timezone, timedelta
+
+REPO_URL = os.environ.get("REPO_URL","")
+ROOT = pathlib.Path(".")
+
+DATE_DIR_RE = re.compile(r"^25\d{4}$")  # 예: 250821
+EXT_ALLOW = {".md",".pdf",".pptx",".ppt",".pptm"}  # ppt 계열 확장 여유 허용
+
+AUTO_BEGIN = "<!--AUTO-SECTION:BEGIN-->"
+AUTO_END   = "<!--AUTO-SECTION:END-->"
+README = pathlib.Path("README.md")
+
+def sh(args:list[str])->str:
+    return subprocess.check_output(args, text=True).strip()
+
+def find_uploader_for_file(path: pathlib.Path) -> str:
+    p = str(path).replace("\\","/")
+    # 최초 추가 커밋의 Author
+    try:
+        first = sh(["git","log","--diff-filter=A","--follow","--format=%an","--",p]).splitlines()
+        if first:
+            return first[-1]
+    except subprocess.CalledProcessError:
+        pass
+    # 없으면 최신 커밋 Author
+    try:
+        last = sh(["git","log","-1","--pretty=%an","--",p])
+        if last:
+            return last
+    except subprocess.CalledProcessError:
+        pass
+    return ""
+
+def pretty_title_from_filename(fname: str) -> str:
+    stem = pathlib.Path(fname).stem
+    # 언더스코어/하이픈 → 공백
+    title = re.sub(r"[_\-]+"," ", stem).strip()
+    # 과도한 Title Case 방지: 단순 첫글자만 대문자
+    if title:
+        return title[0].upper() + title[1:]
+    return stem
+
+def collect_rows():
+    rows = []
+    for d in sorted([p for p in ROOT.iterdir() if p.is_dir() and DATE_DIR_RE.match(p.name)], reverse=True):
+        for f in sorted(d.rglob("*")):
+            if not f.is_file(): 
+                continue
+            if f.suffix.lower() not in EXT_ALLOW:
+                continue
+            uploader = find_uploader_for_file(f)
+            paper = pretty_title_from_filename(f.name)
+            rel = f.as_posix()
+            url = f"{REPO_URL}/blob/main/{rel}" if REPO_URL else rel
+            rows.append((d.name, uploader, paper, rel, url))
+    return rows
+
+def render_table(rows):
+    if not rows:
+        kst = timezone(timedelta(hours=9))
+        now = datetime.now(kst).strftime("%Y-%m-%d %H:%M KST")
+        return (
+            "## 📚 스터디 업로드 목록\n\n"
+            f"- 현재 기준 자동으로 수집된 항목이 없습니다. (시각: **{now}**)\n"
+        )
+    # 표 머리
+    md = ["## 📚 스터디 업로드 목록\n",
+          "| 폴더날짜 | 업로드한 사람 | 논문 이름 | 파일 | 링크 |",
+          "|---|---|---|---|---|"]
+    for date_dir, uploader, paper, rel, url in rows:
+        # 마크다운 이스케이프 최소화
+        paper_md = paper.replace("|","\\|")
+        uploader_md = uploader.replace("|","\\|") if uploader else ""
+        rel_md = rel.replace("|","\\|")
+        md.append(f"| `{date_dir}` | {uploader_md} | {paper_md} | `{rel_md}` | [열기]({url}) |")
+    return "\n".join(md) + "\n"
+
+def replace_section(orig: str, body: str) -> str:
+    pattern = re.compile(re.escape(AUTO_BEGIN) + r"(.*?)" + re.escape(AUTO_END), re.DOTALL)
+    if pattern.search(orig):
+        return pattern.sub(f"{AUTO_BEGIN}\n{body}\n{AUTO_END}", orig)
+    else:
+        # 마커 없으면 맨 위에 추가
+        return f"{AUTO_BEGIN}\n{body}\n{AUTO_END}\n\n{orig}"
+
+def main():
+    rows = collect_rows()
+    body = render_table(rows)
+
+    if not README.exists():
+        content = f"{AUTO_BEGIN}\n{body}\n{AUTO_END}\n"
+        README.write_text(content, encoding="utf-8")
+        return
+
+    old = README.read_text(encoding="utf-8")
+    new = replace_section(old, body)
+    if new != old:
+        README.write_text(new, encoding="utf-8")
+
+main()
+PY
+
+      - name: Commit & push if changed
+        run: |
+          if [[ -n "$(git status --porcelain README.md)" ]]; then
+            git config user.name  "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add README.md
+            git commit -m "chore: auto-update README (table) [skip ci]"
+            git push
+          else
+            echo "No README changes."
+          fi
