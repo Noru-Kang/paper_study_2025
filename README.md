@@ -20,6 +20,9 @@ git push origin main
 <!--AUTO-SECTION:BEGIN-->
 ## 📚 스터디 업로드 목록
 
-- 현재 기준 자동으로 수집된 항목이 없습니다. (시각: **2025-08-21 21:28 KST**)
+| 폴더날짜 | 업로드한 사람 | 논문 이름 | 파일 | 링크 |
+|---|---|---|---|---|
+| `250828` | Noru-Kang | README | `250828/README.md` | [열기](https://github.com/Noru-Kang/paper_study_2025/blob/main/250828/README.md) |
+| `250821` | Noru-Kang | README | `250821/README.md` | [열기](https://github.com/Noru-Kang/paper_study_2025/blob/main/250821/README.md) |
 
 <!--AUTO-SECTION:END-->
