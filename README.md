@@ -4,9 +4,6 @@
 <!--AUTO-SECTION:BEGIN-->
 ## 📚 스터디 업로드 목록
 
-| 폴더날짜 | 업로드한 사람 | 논문 이름 | 파일 | 링크 |
-|---|---|---|---|---|
-| `250821` | TAE YOUNG KANG | README | `250821/README.MD` | [열기](https://github.com/Noru-Kang/paper_study_2025/blob/main/250821/README.MD) |
-| `250821` | 강태영 | Test1 | `250821/test1.pdf` | [열기](https://github.com/Noru-Kang/paper_study_2025/blob/main/250821/test1.pdf) |
+- 현재 기준 자동으로 수집된 항목이 없습니다. (시각: **2025-08-21 16:29 KST**)
 
 <!--AUTO-SECTION:END-->
