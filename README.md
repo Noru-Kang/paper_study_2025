@@ -22,6 +22,8 @@ git push origin main
 
 | 폴더날짜 | 업로드한 사람 | 논문 이름 | 파일 | 링크 |
 |---|---|---|---|---|
+| `250828` | Noru-Kang | ImageNet Classification with Deep Convolutional Neural Networks | `250828/(AlexNet) ImageNet Classification with Deep Convolutional Neural Networks/ImageNet_Classification_with_Deep_Convolutional_Neural_Networks.pdf` | [열기](https://github.com/Noru-Kang/paper_study_2025/blob/main/250828/%28AlexNet%29%20ImageNet%20Classification%20with%20Deep%20Convolutional%20Neural%20Networks/ImageNet_Classification_with_Deep_Convolutional_Neural_Networks.pdf) |
+| `250828` | Noru-Kang | 2025 08 27 (AlexNet) ImageNet Classification with Deep Convolutional Neural Networks | `250828/2025-08-27-(AlexNet) ImageNet Classification with Deep Convolutional Neural Networks.md` | [열기](https://github.com/Noru-Kang/paper_study_2025/blob/main/250828/2025-08-27-%28AlexNet%29%20ImageNet%20Classification%20with%20Deep%20Convolutional%20Neural%20Networks.md) |
 | `250828` | Noru-Kang | README | `250828/README.md` | [열기](https://github.com/Noru-Kang/paper_study_2025/blob/main/250828/README.md) |
 | `250821` | Noru-Kang | README | `250821/README.md` | [열기](https://github.com/Noru-Kang/paper_study_2025/blob/main/250821/README.md) |
 
