@@ -22,6 +22,7 @@ git push origin main
 
 | 폴더날짜 | 업로드한 사람 | 논문 이름 | 파일 | 링크 |
 |---|---|---|---|---|
+| `250908` | TAE YOUNG KANG | README | `250908/README.md` | [열기](https://github.com/Noru-Kang/paper_study_2025/blob/main/250908/README.md) |
 | `250828` | Noru-Kang | ImageNet Classification with Deep Convolutional Neural Networks | `250828/(AlexNet) ImageNet Classification with Deep Convol 25ca9b246de1800b878cd59e8addb4dd/ImageNet_Classification_with_Deep_Convolutional_Neural_Networks.pdf` | [열기](https://github.com/Noru-Kang/paper_study_2025/blob/main/250828/%28AlexNet%29%20ImageNet%20Classification%20with%20Deep%20Convol%2025ca9b246de1800b878cd59e8addb4dd/ImageNet_Classification_with_Deep_Convolutional_Neural_Networks.pdf) |
 | `250828` | Noru-Kang | (AlexNet) ImageNet Classification with Deep Convolutional Neural Networks | `250828/(AlexNet) ImageNet Classification with Deep Convolutional Neural Networks.md` | [열기](https://github.com/Noru-Kang/paper_study_2025/blob/main/250828/%28AlexNet%29%20ImageNet%20Classification%20with%20Deep%20Convolutional%20Neural%20Networks.md) |
 | `250828` | Noru-Kang | Visualizing and Understanding Convolutional Networks | `250828/(ZFNet) Visualizing and Understanding Convolutiona 25ca9b246de18068af2bc450e4cf0526/Visualizing_and_Understanding_Convolutional_Networks.pdf` | [열기](https://github.com/Noru-Kang/paper_study_2025/blob/main/250828/%28ZFNet%29%20Visualizing%20and%20Understanding%20Convolutiona%2025ca9b246de18068af2bc450e4cf0526/Visualizing_and_Understanding_Convolutional_Networks.pdf) |
