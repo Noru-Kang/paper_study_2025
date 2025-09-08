@@ -22,6 +22,7 @@ git push origin main
 
 | 폴더날짜 | 업로드한 사람 | 논문 이름 | 파일 | 링크 |
 |---|---|---|---|---|
+| `250908` | 2nhyn | 0908 논문리뷰 이나현 | `250908/0908 논문리뷰 이나현.pdf` | [열기](https://github.com/Noru-Kang/paper_study_2025/blob/main/250908/0908%20%EB%85%BC%EB%AC%B8%EB%A6%AC%EB%B7%B0%20%EC%9D%B4%EB%82%98%ED%98%84.pdf) |
 | `250908` | TAE YOUNG KANG | README | `250908/README.md` | [열기](https://github.com/Noru-Kang/paper_study_2025/blob/main/250908/README.md) |
 | `250908` | Noru-Kang | 인셉션v3 | `250908/인셉션v3.pptx` | [열기](https://github.com/Noru-Kang/paper_study_2025/blob/main/250908/%EC%9D%B8%EC%85%89%EC%85%98v3.pptx) |
 | `250828` | Noru-Kang | ImageNet Classification with Deep Convolutional Neural Networks | `250828/(AlexNet) ImageNet Classification with Deep Convol 25ca9b246de1800b878cd59e8addb4dd/ImageNet_Classification_with_Deep_Convolutional_Neural_Networks.pdf` | [열기](https://github.com/Noru-Kang/paper_study_2025/blob/main/250828/%28AlexNet%29%20ImageNet%20Classification%20with%20Deep%20Convol%2025ca9b246de1800b878cd59e8addb4dd/ImageNet_Classification_with_Deep_Convolutional_Neural_Networks.pdf) |
