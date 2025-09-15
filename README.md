@@ -22,6 +22,7 @@ git push origin main
 
 | 폴더날짜 | 업로드한 사람 | 논문 이름 | 파일 | 링크 |
 |---|---|---|---|---|
+| `250915` | Noru-Kang | A Survey of Optimization Methods froma Machine Learning Perspective | `250915/A Survey of Optimization Methods froma Machine Learning Perspective.pdf` | [열기](https://github.com/Noru-Kang/paper_study_2025/blob/main/250915/A%20Survey%20of%20Optimization%20Methods%20froma%20Machine%20Learning%20Perspective.pdf) |
 | `250908` | 2nhyn | 0908 논문리뷰 이나현 | `250908/0908 논문리뷰 이나현.pdf` | [열기](https://github.com/Noru-Kang/paper_study_2025/blob/main/250908/0908%20%EB%85%BC%EB%AC%B8%EB%A6%AC%EB%B7%B0%20%EC%9D%B4%EB%82%98%ED%98%84.pdf) |
 | `250908` | TAE YOUNG KANG | README | `250908/README.md` | [열기](https://github.com/Noru-Kang/paper_study_2025/blob/main/250908/README.md) |
 | `250908` | Noru-Kang | 인셉션v3 | `250908/인셉션v3.pptx` | [열기](https://github.com/Noru-Kang/paper_study_2025/blob/main/250908/%EC%9D%B8%EC%85%89%EC%85%98v3.pptx) |
